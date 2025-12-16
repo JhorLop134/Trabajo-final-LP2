@@ -1,4 +1,4 @@
-#  Propuesta de Proyecto de Web Scraping - LP2 💻
+#  Propuesta de Proyecto de Web Scraping - LP2 
 ![Logo UNALM](https://cdn2.lamolina.edu.pe/lamolina-comunica1/websites/4/imagenes%20de%20escudo/1703855732083.jpeg)
 
 # Tema del Proyecto: 
@@ -18,6 +18,36 @@ Este proyecto va a consistir en un sistema automatizado  que extrae semanalmente
 Este proyecto entregará un dataset estructurado y transparente que permitirá visualizar la **"micro-inflación"** semanal. Aportará valor académico al permitir contrastar la velocidad de
 ajuste de precios de los supermercados privados frente a la data oficial del Estado.
 
+
+## II. Fuentes de Datos a Extraer
+
+### 1. Fuente Web – Precios del Mercado Real (Web Scraping)
+- **Sitio web:** PlazaVea (https://www.plazavea.com.pe)
+- **Tipo de fuente:** Página web (HTML)
+- **Justificación:** La estructura HTML del sitio permite una extracción automatizada y periódica de información, representando precios reales enfrentados por el consumidor.
+- **Datos a extraer:**
+  - Nombre del producto
+  - Precio actual
+  - Precio en oferta (si aplica)
+  - Marca
+  - Categoría
+- **Estrategia:** Se trabajará con una *canasta piloto* de productos básicos (por ejemplo: arroz, aceite, leche) para asegurar consistencia histórica en el análisis.
+
+### 2. Fuente API Oficial – Banco Central de Reserva del Perú (BCRP)
+- **Fuente:** API de Series Estadísticas del BCRP
+- **URL base:** https://estadisticas.bcrp.gob.pe/estadisticas/series/api
+- **Justificación:** Fuente oficial del Estado Peruano, de acceso abierto y confiable, que permite contextualizar los precios del mercado con variables macroeconómicas.
+- **Datos a extraer:**
+  - Tipo de Cambio Interbancario (Serie: PD04637PD)
+  - Indicadores macroeconómicos relevantes
+
+### 3. Fuente Dataset Oficial – INEI
+- **Fuente:** Instituto Nacional de Estadística e Informática (INEI)
+- **Tipo:** Dataset / CSV (datos abiertos)
+- **Justificación:** Proporciona la línea base oficial de inflación para contrastar con los precios obtenidos del mercado.
+- **Datos a extraer:**
+  - Series históricas del Índice de Precios al Consumidor (IPC) de Lima Metropolitana
+- **Uso:** Servirá como grupo de control para evaluar si los precios de supermercados se encuentran por encima o por debajo de la inflación oficial.
 
 
 ## III.  Objetivos del Proyecto
