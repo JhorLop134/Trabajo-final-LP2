@@ -1,7 +1,7 @@
 #  Propuesta de Proyecto de Web Scraping - LP2 
 ![Logo UNALM](https://cdn2.lamolina.edu.pe/lamolina-comunica1/websites/4/imagenes%20de%20escudo/1703855732083.jpeg)
 
-# Tema del Proyecto: 
+# Nombre del Proyecto: 'Info-Canasta'
 
 ## Análisis Comparativo de la Evolución de Precios de la Canasta Básica Familiar en Lima
 
