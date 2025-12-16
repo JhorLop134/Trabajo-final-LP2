@@ -1,4 +1,4 @@
-# 💻 Propuesta de Proyecto de Web Scraping - LP2 💻
+#  Propuesta de Proyecto de Web Scraping - LP2 💻
 ![Logo UNALM](https://cdn2.lamolina.edu.pe/lamolina-comunica1/websites/4/imagenes%20de%20escudo/1703855732083.jpeg)
 
 # Tema del Proyecto: 
@@ -20,7 +20,7 @@ ajuste de precios de los supermercados privados frente a la data oficial del Est
 
 
 
-## III. 🏁 Objetivos del Proyecto
+## III.  Objetivos del Proyecto
 
 ### 3.1. Objetivo General
 Implementar un sistema automatizado en **Python** que integre la extracción de precios minoristas online con indicadores económicos oficiales del BCRP, consolidando una base de datos estructurada que permita el análisis estadístico comparativo de la canasta básica familiar.
@@ -42,7 +42,7 @@ Implementar un sistema automatizado en **Python** que integre la extracción de 
 
 ---
 
-### 📚 Referencias Bibliográficas
+### Referencias Bibliográficas
 * **Banco Central de Reserva del Perú. (2025).** *API de Series Estadísticas*. Recuperado de: [https://estadisticas.bcrp.gob.pe](https://estadisticas.bcrp.gob.pe)
 * **Espinoza, A. (16 de julio del 2025).** ¿Cuánto gasta el peruano promedio en alimentos?: Impacto de los bloqueos en la canasta básica. *Infobae*.[https://www.infobae.com/peru/2025/07/10/cuanto-gasta-el-peruano-promedio-en-alimentos-impacto-los-bloqueos-en-la-canasta-basica/]
 * **INEI. (2025).** *INDICE DE PRECIOS AL CONSUMIDOR DE LIMA METROPOLITANA*. Recuperado de: [https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0135/cap0102.htm]
@@ -55,4 +55,4 @@ Implementar un sistema automatizado en **Python** que integre la extracción de 
 
 **2.** ***Montero Balcazar Maria Megumi - GitHub: [Megumi-cpu]***
 
-**3.** ***[Nombre Compañero] - GitHub: [Su Usuario]***
+**3.** ***Mata Sotelo Estiven Aldair - GitHub: [EstivenMata]***
