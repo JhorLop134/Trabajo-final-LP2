@@ -1,78 +1,62 @@
 # 📝 Propuesta de Proyecto de Web Scraping
-
 ## I. 💡 Tema del Proyecto
-
-### Título del Proyecto: (Elige un nombre que sea descriptivo y atractivo. Ej: "Monitoreo de Precios de Hardware en el Mercado Peruano")
-
-Breve Descripción: (Una o dos frases que resuman lo que hace el proyecto. Ej: "Este proyecto se enfocará en la extracción, limpieza y análisis periódico de datos de precios y especificaciones de productos tecnológicos clave de múltiples minoristas en línea.")
-
+### I.1. Título del Proyecto:
+***"Info-Canasta: Análisis Comparativo de la Evolución de Precios de la Canasta Básica Familiar en Lima"***
+### I.2. Descripción:
+El proyecto consiste en un sistema automatizado que extrae semanalmente los precios de productos esenciales (arroz, aceite, leche) de supermercados online y los contrasta con datos oficiales del Banco Central de Reserva (BCRP) e INEI, para determinar la inflación real que enfrenta el consumidor frente a los indicadores macroeconómicos.
 ## II. 🎯 Justificación, Relevancia y Aporte
-Relevancia (¿Por qué es importante?):
-
-Describe el problema o la necesidad que resuelve el proyecto. (Ej: La volatilidad de precios en el sector tecnológico dificulta la toma de decisiones informadas por parte de los consumidores o la gestión de inventario para pequeños negocios.)
-
-Menciona la actualidad o la demanda de los datos que vas a obtener. (Ej: La información actualizada sobre la oferta de productos en tiempo real es crucial para identificar tendencias y mejores ofertas.)
-
-***Potencial Aporte (¿Qué valor genera?)***:
-
-Detalla el beneficio que producirá tu producto final. (Ej: Ofrecer una herramienta o conjunto de datos que permita la comparación histórica y en tiempo real de precios, facilitando el ahorro o la detección de fluctuaciones del mercado.)
-
-Menciona a quién beneficiará (consumidores, analistas, empresas, etc.).
-
+### II.1. Importancia:
+En un contexto de incertidumbre económica, los ciudadanos perciben que los precios en góndola suben a un ritmo diferente al de los reportes oficiales. Es vital contar con herramientas independientes que monitoreen la variación de costos de alimentos en tiempo real y su relación con factores como el tipo de cambio.
+### II.2. Valor del aporte:
+Este proyecto entregará un dataset estructurado y transparente que permitirá visualizar la **"micro-inflación"** semanal. Aportará valor académico al permitir contrastar la velocidad de ajuste de precios de los supermercados privados frente a la data oficial del Estado.
 ## III. 🌐 Fuentes de Datos a Extraer
-
-Es fundamental ser específico con los sitios web o APIs que planeas usar.
-
-Fuentes de Web Scraping (Sitios Web):
-
-***Sitio 1 (URL): [Ejemplo: www.mercadolibre.com]***
-
-Datos a Extraer: Precio, título del producto, URL de la imagen, calificación del vendedor.
-
-***Sitio 2 (URL): [Ejemplo: www.tienda-oficial-hardware.com]***
-
-Datos a Extraer: Precio, SKU/Modelo, disponibilidad de stock, características técnicas.
-
-Sitio N...
-
-Nota Importante: Siempre se debe mencionar la consideración de las políticas de uso (Robots.txt) para asegurar una extracción ética y legal.
-
-Fuentes API (Si aplica):
-
-***API (Nombre/URL): [Ejemplo: API de Google Maps para coordenadas geográficas de tiendas]***
-
-Datos a Extraer: [Ejemplo: Latitud, Longitud]
-
+### 1. Fuente de Web Scraping (El Mercado Real):
+- **Sitios Web:** PlazaVea.com.pe (o Tottus).
+- **Justificación:** Estructura HTML ordenada que facilita la extracción recurrente.
+- **Datos a Extraer:** Nombre del Producto, Precio Actual, Precio Oferta, Marca, Categoría (Abarrotes).
+- **Estrategia:** Se monitoreará una "Canasta Piloto" fija de 10 productos clave (ej. "Arroz Costeño 5kg", "Aceite Primor 1L") para garantizar la consistencia histórica.
+### 2. Fuente API (El Dato Oficial - Gobierno Peruano):
+- **API:** Servicio de Datos del BCRP (Banco Central de Reserva del Perú)
+- **URL Base:** https://estadisticas.bcrp.gob.pe/estadisticas/series/api/
+- **Justificación:** Fuente oficial del Estado Peruano, de acceso abierto y gratuito, que garantiza la veracidad académica de los datos sin barreras de pago o bloqueos de red.
+- **Datos a Extraer:**
+  - **Tipo de Cambio Interbancario (Serie: PD04637PD):** Para analizar la correlación entre el dólar y los precios de importados.
+  - **Expectativas Macroeconómicas:** Para contrastar con la realidad del mercado.
+### 3. Fuente CSV / Dataset (La Línea Base):
+- **Fuente:** INEI (Instituto Nacional de Estadística e Informática) - Plataforma de Datos Abiertos.
+- **Datos a Extraer:** Series históricas mensuales del Índice de Precios al Consumidor (IPC) de Lima Metropolitana (Archivo .csv).
+- **Uso:** Servirá como "grupo de control" para comparar si nuestra medición de supermercado está por encima o por debajo de la inflación oficial.
 ## IV. 🏁 Objetivos
-
-Aquí se detallan las metas que se quieren alcanzar, divididas en objetivos generales y específicos (deben ser medibles y alcanzables).
-
 ### A. Objetivo General
-Desarrollar un sistema automatizado de web scraping para la extracción periódica y almacenamiento de datos relevantes del sector [Tu Sector] que sirva como base para un análisis de [Tu Enfoque de Análisis].
-
+Implementar un flujo de extracción de datos (Pipeline ETL) colaborativo que recolecte, limpie y almacene precios de alimentos y variables económicas oficiales para generar un indicador independiente de variación de costos.
 ### B. Objetivos Específicos
-Implementar scripts en Python (usando bibliotecas como Scrapy o BeautifulSoup) para la extracción de datos de al menos [Número] fuentes web distintas.
+**1.** Desarrollar un scraper en Python (usando BeautifulSoup y Requests) capaz de navegar
+por las categorías de alimentos básicos y extraer precios de forma ética (respetando
+robots.txt).
 
-Diseñar e implementar una base de datos (SQL o NoSQL) para el almacenamiento eficiente de los datos extraídos.
+**2.** Implementar la conexión automatizada a la API del BCRP para enriquecer cada registro
+de precios con el contexto económico del día.
 
-Desarrollar módulos de limpieza y transformación de datos (ETL) para estandarizar la información (precios a un solo formato, normalización de nombres, etc.).
+**3.** Diseñar procesos de limpieza de datos para estandarizar formatos (soles, fechas) y
+unificar las tres fuentes en una base de datos coherente.
 
-Generar el producto final (ej: un dashboard o un archivo CSV) que sintetice la información extraída y analizada.
+**4.** Publicar el código fuente documentado en GitHub y generar un reporte de análisis con
+los hallazgos.
 
 ## V. 🖼️ Producto Final
-Describe de forma concreta qué entregará el proyecto.
+**1. Repositorio GitHub:** Código fuente completo con historial de commits de todos los
+integrantes, incluyendo scripts de extracción (scraper.py) y limpieza.
 
-### 1. Código Fuente Completo: Todo el código del scraper, módulos de limpieza, y scripts de la base de datos, alojado en el repositorio de GitHub.
+**2. Base de Datos Unificada (.csv):** Archivo maestro con la estructura: Fecha, Producto,
+Precio_Supermercado, Tipo_Cambio_BCRP, IPC_Oficial.
 
-### 2. Base de Datos/Dataset Final: Una base de datos [Tipo: SQL/CSV/JSON] con la data limpia y estructurada.
+**3. Informe Técnico:** Documento detallando el diseño de la extracción, la lógica de
+programación utilizada y un análisis gráfico de la correlación entre el Dólar (BCRP) y la
+Canasta (Supermercado).
 
-Ejemplo de estructura: Una tabla con columnas para ID, Fecha de Extracción, Producto, Precio, Minorista, URL Fuente.
+## Integrantes del Grupo:
+**1.** ***López Ruiz Jhordy Fabrizio - GitHub: JhorLop134***
 
-### 3. Visualización/Análisis (Opcional, pero recomendado):
+**2.** ***[Nombre Compañero] - GitHub: [Su Usuario]***
 
-Un dashboard interactivo (ej. usando Streamlit o un Notebook de Jupyter) que muestre la comparación de precios históricos o la distribución de stock.
-
-## VI. 💾 Repositorio de GitHub
-***Ruta del Repositorio***: https://www.youtube.com/watch?v=eQMcIGVc8N0
-
-Recomendación: En el repositorio, asegúrate de incluir un archivo README.md que contenga un resumen de esta propuesta, instrucciones para ejecutar el scraper y una breve descripción de la estructura del proyecto (carpetas, archivos principales, dependencias).
+**3.** ***[Nombre Compañero] - GitHub: [Su Usuario]***
