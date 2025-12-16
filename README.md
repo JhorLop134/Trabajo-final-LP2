@@ -1,7 +1,7 @@
 # 📝 Propuesta de Proyecto de Web Scraping
 ## I. 💡 Tema del Proyecto
 
-## 🏁 3. Objetivos del Proyecto
+## III. 🏁 Objetivos del Proyecto
 
 ### 3.1. Objetivo General
 Implementar un sistema automatizado en **Python** que integre la extracción de precios minoristas online con indicadores económicos oficiales del BCRP, consolidando una base de datos estructurada que permita el análisis estadístico comparativo de la canasta básica familiar.
