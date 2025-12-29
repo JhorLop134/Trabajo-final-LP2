@@ -5,7 +5,22 @@ import webbrowser
 import cerebro
 
 def generar_html():
+<<<<<<< Updated upstream
     archivo_csv = "datos_productos.csv"
+=======
+    print("🎨 Diseñando...")
+    
+    archivo_csv = 'datos_productos.csv'
+    
+    # Valores por defecto
+    costo_canasta = 0.00
+    prediccion_texto = "---"
+    tendencia = "..."
+    mensaje_ia = "Faltan datos."
+    color_alerta = "secondary"
+    icono_tendencia = "fa-minus"
+    tabla_html = ""
+>>>>>>> Stashed changes
 
     if not os.path.exists(archivo_csv):
         print("❌ No existe datos_productos.csv")
