@@ -6,8 +6,12 @@ import visual
 
 # URLs de productos a monitorear (canasta piloto)
 PRODUCTOS_TOTTUS = [
-    "https://www.tottus.com.pe/tottus-pe/articulo/122585079/leche-laive-light-sin-lactosa-botella-390-g/122585081",
-    # Puedes agregar más productos aquí
+    "https://www.tottus.com.pe/tottus-pe/articulo/144942887/Leche%20UHT%20Entera%20Gloria%20Caja%20946%20mL/144942888",
+    "https://www.tottus.com.pe/tottus-pe/articulo/113706444/aceite-vegetalprimor-900-ml/113706446",
+    "https://www.tottus.com.pe/tottus-pe/articulo/113707060/arroz-extra-faraon-5-kg/113707061",
+    "https://www.tottus.com.pe/tottus-pe/articulo/113927690/huevos-pardos-tottus-bandeja-15-und/113927691",
+    "https://www.tottus.com.pe/tottus-pe/articulo/117026658/pollo-fresco-con-menudencia-x-kg/117026659",
+    "https://www.tottus.com.pe/tottus-pe/articulo/115830731/limon-sutil-tottus/115830732"
 ]
 
 def ejecutar_sistema():
