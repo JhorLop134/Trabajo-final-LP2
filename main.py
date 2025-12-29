@@ -1,5 +1,5 @@
 from api_data import tipo_de_cambio_actual
-from data_manager import guardar_datos
+from data_manager import guardar_datos, reiniciar_archivo
 from scraper import scraper_tottus 
 from datetime import datetime
 import visual  
@@ -19,7 +19,13 @@ def ejecutar_sistema():
     print("INICIANDO SISTEMA INFO-CANASTA")
     print(f" Fecha y hora: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
     print("============================================================")
-
+    
+    # 0. Limpieza del archivo antiguo
+    try:
+        reiniciar_archivo()
+    except Exception as e:
+        print(f" ⚠️ No se pudo reiniciar el archivo ⚠️: {e}")
+    
     # 1. Obtener tipo de cambio desde la API del BCRP 
     try:
         tc = tipo_de_cambio_actual()
