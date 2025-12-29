@@ -5,14 +5,30 @@
         <meta charset="UTF-8">
         <title>Dashboard Info-Canasta</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <style>
             body { background-color: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
-            .header-bg { background: linear-gradient(135deg, #0f9b0f 0%, #000000 100%); color: white; padding: 40px 0; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+            
+            /* ESTE ES EL BANNER QUE QUERÍAS */
+            .header-bg { 
+                background: linear-gradient(135deg, #0f9b0f 0%, #000000 100%); 
+                color: white; 
+                padding: 40px 0; 
+                margin-bottom: 30px; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            }
+            
             .card { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
             .card:hover { transform: translateY(-5px); }
             .icon-box { font-size: 2.5rem; color: #0f9b0f; }
-            .prediction-box { background: #e8f5e9; border-left: 5px solid #0f9b0f; }
+            
+            /* TARJETA IA INTELIGENTE */
+            .prediction-box { border-left: 5px solid; }
+            .prediction-box-danger { border-color: #dc3545; background: #fff5f5; }
+            .prediction-box-success { border-color: #198754; background: #f0fff4; }
+            .prediction-box-primary { border-color: #0d6efd; background: #f0f8ff; }
+            
+            .mensaje-ia { font-style: italic; background: white; padding: 10px; border-radius: 8px; margin-top: 10px; border: 1px solid #ddd; }
             .table-header { background-color: #2c3e50; color: white; }
         </style>
     </head>
@@ -21,25 +37,25 @@
         <div class="header-bg text-center">
             <h1><i class="fas fa-shopping-basket"></i> Proyecto Info-Canasta</h1>
             <p class="lead">Sistema de Monitoreo de Precios y Predicción IA</p>
-            <small>Equipo: Megumi (Data) | Jhordy (API) | Estiven (Modelado)</small>
+            <small class="opacity-75">Equipo: Megumi (Data) | Jhordy (API) | Estiven (Modelado)</small>
         </div>
 
         <div class="container">
             
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <div class="card p-3">
+                    <div class="card p-3 h-100">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="text-muted">Precio Promedio (Hoy)</h6>
-                                <h3>S/ 10.43</h3>
+                                <h6 class="text-muted">Costo Total Canasta</h6>
+                                <h3>S/ 250.36</h3>
                             </div>
-                            <div class="icon-box"><i class="fas fa-tags"></i></div>
+                            <div class="icon-box"><i class="fas fa-receipt"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card p-3">
+                    <div class="card p-3 h-100">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="text-muted">Dólar Actual (BCRP)</h6>
@@ -49,15 +65,21 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-4">
-                    <div class="card p-3 prediction-box">
-                        <div class="d-flex justify-content-between align-items-center">
+                    <div class="card p-3 h-100 prediction-box prediction-box-primary">
+                        <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="text-success fw-bold">🤖 Predicción IA (Mañana)</h6>
-                                <h3>S/ 4.38</h3>
-                                <small>📉 Bajará levemente</small>
+                                <h6 class="text-primary fw-bold">🤖 Predicción IA</h6>
+                                <h3>S/ 250.37</h3>
+                                <span class="badge bg-primary mb-2">
+                                    <i class="fas fa-scale-balanced"></i> Estable ⚖️
+                                </span>
                             </div>
-                            <div class="icon-box"><i class="fas fa-robot"></i></div>
+                            <div class="icon-box text-primary"><i class="fas fa-robot"></i></div>
+                        </div>
+                        <div class="mensaje-ia text-muted small">
+                            "El mercado está tranquilo. Es el momento perfecto para comprar los Huevos y abarrotes antes de la próxima subida."
                         </div>
                     </div>
                 </div>
@@ -164,6 +186,90 @@
       <td>0.85</td>
       <td>3.75</td>
     </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
   </tbody>
 </table>
                         </div>
@@ -176,18 +282,19 @@
                         <hr>
                         <img src='grafico_precios.png' class="img-fluid rounded" alt='Gráfico' onerror="this.src='https://via.placeholder.com/400x300?text=Gráfico+Pendiente'">
                         <br><br>
-                        <div class="alert alert-info">
-                            <strong><i class="fas fa-info-circle"></i> Insight del Modelo:</strong><br>
-                            El modelo detecta una estabilidad en el tipo de cambio.
+                        <div class="alert alert-info small">
+                            <strong><i class="fas fa-info-circle"></i> Nota:</strong><br>
+                            El modelo utiliza Regresión Lineal basada en la volatilidad del dólar.
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div> <footer class="text-center py-4 text-muted">
-            <small>&copy; 2025 Universidad Agraria La Molina - Ingeniería Estadística e Informática</small>
-        </footer>
+            <footer class="text-center py-4 text-muted">
+                <small>&copy; 2025 Universidad Agraria La Molina - Ingeniería Estadística e Informática</small>
+            </footer>
 
+        </div>
     </body>
     </html>
     
