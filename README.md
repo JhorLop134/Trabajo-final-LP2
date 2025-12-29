@@ -22,7 +22,7 @@ ajuste de precios de los supermercados privados frente a la data oficial del Est
 ## II. Fuentes de Datos a Extraer
 
 ### 1. Fuente Web – Precios del Mercado Real (Web Scraping)
-- **Sitio web:** PlazaVea (https://www.plazavea.com.pe)
+- **Sitio web:** Tottus (https://www.tottus.com.pe)
 - **Tipo de fuente:** Página web (HTML) 
 - **Justificación:** La estructura HTML del sitio permite una extracción automatizada y periódica de información, representando precios reales enfrentados por el consumidor.
 - **Datos a extraer:**
