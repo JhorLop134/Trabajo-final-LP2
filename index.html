@@ -74,47 +74,20 @@
             margin-right: -10px;
         }
 
-        /* === ESTILOS DE LA TABLA (MODIFICADOS) === */
+        /* ESTILOS DE TABLA CORPORATIVA */
         .custom-table { margin-bottom: 0; }
-        
-        .custom-table thead { 
-            background-color: #2d3436; 
-            color: white; 
-        }
-        
-        /* CAMBIO: text-align center para los títulos */
+        .custom-table thead { background-color: #2d3436; color: white; }
         .custom-table th { 
-            padding: 15px; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            letter-spacing: 1px; 
-            border: none;
-            text-align: center !important; /* CENTRADO FORZOSO */
+            padding: 15px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; border: none; text-align: center !important; 
         }
-        
-        /* Celdas generales centradas */
         .custom-table td { 
-            padding: 12px 15px; 
-            vertical-align: middle; 
-            border-bottom: 1px solid #f1f2f6; 
-            font-size: 0.9rem;
-            text-align: center; /* Datos centrados por defecto */
+            padding: 12px 15px; vertical-align: middle; border-bottom: 1px solid #f1f2f6; font-size: 0.9rem; text-align: center; 
         }
-        
-        /* EXCEPCIÓN: Nombre del producto alineado a la IZQUIERDA para que se lea bien */
         .custom-table td:nth-child(2) { 
-            min-width: 250px; 
-            font-weight: 500; 
-            color: #2c3e50;
-            text-align: left !important; 
+            min-width: 250px; font-weight: 500; color: #2c3e50; text-align: left !important; 
         }
-        
-        /* Precio en Soles (Verde y Negrita) */
         .custom-table td:nth-child(3) { 
-            font-weight: 700; 
-            color: #198754; 
-            font-size: 1rem; 
+            font-weight: 700; color: #198754; font-size: 1rem; 
         }
     </style>
     </head>
@@ -137,7 +110,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <div class="kpi-title">Costo Canasta</div>
-                            <div class="kpi-value">S/ 62.59</div>
+                            <div class="kpi-value">S/ 375.54</div>
                             <small class="text-muted d-flex align-items-center">
                                 <span class="live-dot"></span> Actualizado: 29/12/2025
                             </small>
@@ -161,19 +134,19 @@
             </div>
     
             <div class="col-md-4">
-                <div class="card p-4 h-100 ia-card ia-card-primary">
+                <div class="card p-4 h-100 ia-card ia-card-danger">
                     <div class="d-flex align-items-center mb-2">
-                        <i class="fas fa-robot me-2 text-primary"></i>
-                        <span class="fw-bold text-primary small">ASISTENTE IA</span>
+                        <i class="fas fa-robot me-2 text-danger"></i>
+                        <span class="fw-bold text-danger small">ASISTENTE IA</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-end">
-                        <h3 class="mb-0 fw-bold">S/ 62.56</h3>
-                        <span class="badge bg-primary"><i class="fas fa-scale-balanced"></i> Estable ⚖️</span>
+                        <h3 class="mb-0 fw-bold">S/ 376.65</h3>
+                        <span class="badge bg-danger"><i class="fas fa-arrow-trend-up"></i> Subirá 📈</span>
                     </div>
                     <div class="d-flex mt-3">
                         <div class="me-2"><i class="fas fa-user-astronaut text-secondary fa-lg"></i></div>
                         <div class="chat-bubble shadow-sm">
-                            El mercado está tranquilo. Es el momento perfecto para comprar el Aceite y abarrotes antes de la próxima subida.
+                            Por <b>campaña de Año Nuevo</b> y la tendencia del dólar, el <b>Arroz</b> subirá a <b>S/ 26.01</b>. ¡Compra hoy!
                         </div>
                     </div>
                 </div>
@@ -198,6 +171,216 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Leche UHT Entera Gloria Caja 946 mL</td>
+      <td>6.10</td>
+      <td>1.63</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Aceite Vegetal Primor Clásico Botella 900 mL</td>
+      <td>8.50</td>
+      <td>2.27</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Arroz Faraón Extra Bolsa 5 Kg</td>
+      <td>24.90</td>
+      <td>6.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Huevos Pardos Tottus Bandeja 15 Und</td>
+      <td>10.00</td>
+      <td>2.67</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Pollo Fresco Con Menudencia x Kg</td>
+      <td>9.90</td>
+      <td>2.64</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>29/12/2025</td>
+      <td>Limón Sutil Tottus</td>
+      <td>3.19</td>
+      <td>0.85</td>
+      <td>3.75</td>
+    </tr>
     <tr>
       <td>29/12/2025</td>
       <td>Leche UHT Entera Gloria Caja 946 mL</td>

@@ -5,7 +5,7 @@ import webbrowser
 import cerebro 
 
 def generar_html():
-    print(" Generando Dashboard...")
+    print("✨ Generando Dashboard Corporativo (Conectado a IA Avanzada)...")
     
     archivo_csv = 'datos_productos.csv'
     
@@ -28,8 +28,8 @@ def generar_html():
             costo_canasta = df_hoy["Precio soles"].sum()
             dolar = df_hoy["TipodeCambio_día"].iloc[-1]
 
-            # IA
-            datos_ia = cerebro.predecir_futuro(costo_canasta, dolar)
+            datos_ia = cerebro.analizar_canasta(df_hoy)
+            
             prediccion_texto = f"S/ {datos_ia['prediccion']}"
             tendencia = datos_ia['tendencia']
             mensaje_ia = datos_ia['mensaje']
@@ -39,7 +39,7 @@ def generar_html():
             elif "Bajará" in tendencia: icono_tendencia = "fa-arrow-trend-down"
             else: icono_tendencia = "fa-scale-balanced"
 
-            # GRÁFICO
+            #  GRÁFICO
             plt.figure(figsize=(8, 4.5))
             nombres = [n[:18] + "..." if len(n)>18 else n for n in df_hoy["Producto"]]
             precios = df_hoy["Precio soles"].tolist()
@@ -62,19 +62,17 @@ def generar_html():
             plt.savefig("grafico_precios.png")
             plt.close()
 
-            # TABLA 
+            #TABLA
             df_display = df.copy()
             df_display = df_display[['Fecha', 'Producto', 'Precio soles', 'Precio_dólar', 'TipodeCambio_día']] 
-            
-            # CAMBIO
             df_display.columns = ['FECHA', 'PRODUCTO', 'PRECIO (S/)', 'PRECIO ($)', 'T.C.'] 
 
             tabla_html = df_display.to_html(classes="table table-hover align-middle custom-table", index=False, border=0)
             
         except Exception as e:
-            print(f"⚠️ Error: {e}")
+            print(f"⚠️ Error procesando visual: {e}")
 
-    # HTML 
+    #  HTML
     html = f"""
     <!DOCTYPE html>
     <html lang="es">
@@ -151,47 +149,20 @@ def generar_html():
             margin-right: -10px;
         }}
 
-        /* === ESTILOS DE LA TABLA (MODIFICADOS) === */
+        /* ESTILOS DE TABLA CORPORATIVA */
         .custom-table {{ margin-bottom: 0; }}
-        
-        .custom-table thead {{ 
-            background-color: #2d3436; 
-            color: white; 
-        }}
-        
-        /* CAMBIO: text-align center para los títulos */
+        .custom-table thead {{ background-color: #2d3436; color: white; }}
         .custom-table th {{ 
-            padding: 15px; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            letter-spacing: 1px; 
-            border: none;
-            text-align: center !important; /* CENTRADO FORZOSO */
+            padding: 15px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; border: none; text-align: center !important; 
         }}
-        
-        /* Celdas generales centradas */
         .custom-table td {{ 
-            padding: 12px 15px; 
-            vertical-align: middle; 
-            border-bottom: 1px solid #f1f2f6; 
-            font-size: 0.9rem;
-            text-align: center; /* Datos centrados por defecto */
+            padding: 12px 15px; vertical-align: middle; border-bottom: 1px solid #f1f2f6; font-size: 0.9rem; text-align: center; 
         }}
-        
-        /* EXCEPCIÓN: Nombre del producto alineado a la IZQUIERDA para que se lea bien */
         .custom-table td:nth-child(2) {{ 
-            min-width: 250px; 
-            font-weight: 500; 
-            color: #2c3e50;
-            text-align: left !important; 
+            min-width: 250px; font-weight: 500; color: #2c3e50; text-align: left !important; 
         }}
-        
-        /* Precio en Soles (Verde y Negrita) */
         .custom-table td:nth-child(3) {{ 
-            font-weight: 700; 
-            color: #198754; 
-            font-size: 1rem; 
+            font-weight: 700; color: #198754; font-size: 1rem; 
         }}
     </style>
     </head>
