@@ -2,6 +2,14 @@ import pandas as pd
 from datetime import datetime
 import os
 
+def reiniciar_archivo():
+    nombre_archivo = 'datos_productos.csv'
+    if os.path.exists(nombre_archivo):
+        os.remove(nombre_archivo)
+        print("🧹 Archivo anterior eliminado. Iniciando limpieza...")
+    else:
+        print("✨ No existía archivo previo. Creando uno nuevo...")
+
 def limpiar_precio(precio_sucio):
     precio_limpio = precio_sucio.replace("S/", "").replace(",", "").strip()
     return float(precio_limpio)
