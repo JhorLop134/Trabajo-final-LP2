@@ -2,7 +2,7 @@ import requests
 
 def tipo_de_cambio_actual():
 
-    url = "https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01206PM/json"
+    url = "https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PD04638PD/json"
 
     try:
         response = requests.get(url)
