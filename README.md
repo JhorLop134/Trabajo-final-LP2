@@ -38,7 +38,7 @@ ajuste de precios de los supermercados privados frente a la data oficial del Est
 - **URL base:** https://estadisticas.bcrp.gob.pe/estadisticas/series/api
 - **Justificación:** Fuente oficial del Estado Peruano, de acceso abierto y confiable, que permite contextualizar los precios del mercado con variables macroeconómicas.
 - **Datos a extraer:**
-  - Tipo de Cambio Interbancario (Serie: PD04637PD)
+  - Tipo de Cambio Interbancario (Serie: 	PD04638PD)
   - Indicadores macroeconómicos relevantes
 
 ### 3. Fuente Dataset Oficial – INEI
