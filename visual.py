@@ -5,7 +5,7 @@ import webbrowser
 import cerebro 
 
 def generar_html():
-    print("✨ Generando Dashboard Corporativo (Conectado a IA Avanzada)...")
+    print(" Generando Dashboard...")
     
     archivo_csv = 'datos_productos.csv'
     
