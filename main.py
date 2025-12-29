@@ -11,13 +11,13 @@ PRODUCTOS_TOTTUS = [
 
 def ejecutar_sistema():
     print("============================================================")
-    print(" INICIANDO SISTEMA INFO-CANASTA")
+    print("INICIANDO SISTEMA INFO-CANASTA")
     print(f" Fecha y hora: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
     print("============================================================")
 
     # 1. Obtener tipo de cambio desde la API del BCRP
     tc = tipo_de_cambio_actual()
-    print(f"💵 Tipo de cambio usado: S/ {tc}")
+    print(f"Tipo de cambio usado: S/ {tc}")
     print("------------------------------------------------------------")
 
     # 2. Scraping de productos
@@ -32,10 +32,10 @@ def ejecutar_sistema():
             # 3. Guardar datos en CSV
             guardar_datos(producto, precio_texto, tc)
         else:
-            print("⚠️ No se pudo procesar el producto.")
+            print(" No se pudo procesar el producto.")
 
     print("============================================================")
-    print(" EJECUCIÓN FINALIZADA. DATOS ACTUALIZADOS.")
+    print("EJECUCIÓN FINALIZADA. DATOS ACTUALIZADOS.")
     print("============================================================")
 
 if __name__ == "__main__":
