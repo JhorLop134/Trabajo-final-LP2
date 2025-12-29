@@ -6,8 +6,11 @@ import cerebro
 
 def generar_html():
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     archivo_csv = "datos_productos.csv"
 =======
+=======
+>>>>>>> Stashed changes
     print("🎨 Diseñando...")
     
     archivo_csv = 'datos_productos.csv'
