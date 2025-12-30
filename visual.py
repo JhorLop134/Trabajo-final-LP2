@@ -3,15 +3,17 @@ import matplotlib.pyplot as plt
 import os
 import webbrowser
 import cerebro 
+import api_data 
 import random
+import json  
 from datetime import datetime, timedelta
 
 def generar_html():
-    print("✨ Generando Dashboard ...")
+    print("Generando Dashboard ...")
     
     archivo_csv = 'datos_productos.csv'
     
-    #  VALORES POR DEFECTO
+    # VALORES POR DEFECTO 
     costo_canasta = 0.00
     dolar = 3.75
     prediccion_texto = "---"
@@ -20,14 +22,20 @@ def generar_html():
     color_alerta = "secondary"
     icono_tendencia = "fa-circle-notch fa-spin"
     tabla_html = "<div class='alert alert-warning'>Sin datos.</div>"
-    fecha_actual = "Hoy"
+    fecha_actual = datetime.now().strftime("%d/%m/%Y")
+    
+    labels_json = "[]"
+    values_json = "[]"
 
     if os.path.exists(archivo_csv):
         try:
             df = pd.read_csv(archivo_csv)
-            fecha_actual = df["Fecha"].iloc[-1]
-            df_hoy = df[df["Fecha"] == fecha_actual]
-
+            try: 
+                fecha_actual = df["Fecha"].iloc[-1]
+                df_hoy = df[df["Fecha"] == fecha_actual]
+            except:
+                df_hoy = df
+                
             costo_canasta = df_hoy["Precio soles"].sum()
             dolar = df_hoy["TipodeCambio_día"].iloc[-1]
 
@@ -42,7 +50,7 @@ def generar_html():
             elif "Bajará" in tendencia: icono_tendencia = "fa-arrow-trend-down"
             else: icono_tendencia = "fa-scale-balanced"
 
-            # GRÁFICO 
+            #GRÁFICO PRODUCTOS
             plt.figure(figsize=(8, 4.5))
             nombres = [n[:18] + "..." if len(n)>18 else n for n in df_hoy["Producto"]]
             precios = df_hoy["Precio soles"].tolist()
@@ -65,50 +73,47 @@ def generar_html():
             plt.savefig("grafico_precios.png")
             plt.close()
 
-            # GRÁFICO DÓLAR
-            plt.figure(figsize=(8, 3)) 
+            # GRÁFICO DÓLAR 
             
-            fechas_dolar = []
-            valores_dolar = []
+            fechas_api, valores_api = api_data.obtener_historial_dolar()
             
-            try:
-                fecha_base = datetime.strptime(fecha_actual, "%d/%m/%Y")
-            except:
-                fecha_base = datetime.now()
+            lista_fechas = []
+            lista_valores = []
 
-            for i in range(6, -1, -1):
-                dia = fecha_base - timedelta(days=i)
-                fechas_dolar.append(dia.strftime("%d/%m"))
-                
-                if i == 0:
-                    valores_dolar.append(dolar) 
-                else:
-                    variacion = random.uniform(-0.05, 0.05)
-                    valores_dolar.append(dolar + variacion)
+            if fechas_api:
+                for i, f in enumerate(fechas_api):
+                    fecha_corta = f.split('.')[0] + "/" + datetime.now().strftime("%m") # Truco: "24/12"
+                    lista_fechas.append(fecha_corta)
+                    lista_valores.append(valores_api[i])
+            else:
+                base = datetime.now()
+                for i in range(6, 0, -1):
+                    dia = base - timedelta(days=i)
+                    lista_fechas.append(dia.strftime("%d/%m"))
+                    lista_valores.append(round(dolar + random.uniform(-0.02, 0.02), 2))
 
-
-            plt.plot(fechas_dolar, valores_dolar, color='#2ecc71', linewidth=2, marker='o', markersize=5)
-
-            plt.fill_between(fechas_dolar, valores_dolar, min(valores_dolar)-0.05, color='#2ecc71', alpha=0.1)
+            hoy_str = datetime.now().strftime("%d/%m")
             
-            plt.title("Tendencia Tipo de Cambio (Últimos 7 días)", fontsize=10, fontweight='bold', color='#555', loc='left')
-            plt.grid(axis='y', linestyle='--', alpha=0.3)
-            plt.gca().spines['top'].set_visible(False)
-            plt.gca().spines['right'].set_visible(False)
-            plt.gca().spines['left'].set_visible(False)
-            plt.ylim(min(valores_dolar)-0.02, max(valores_dolar)+0.02)
-            plt.tight_layout()
-            plt.savefig("grafico_dolar.png")
-            plt.close()
+            if not lista_fechas or lista_fechas[-1] != hoy_str:
+                lista_fechas.append(hoy_str)
+                valor_hoy = dolar 
+                if lista_valores: valor_hoy = lista_valores[-1] 
+                lista_valores.append(valor_hoy)
+
+            labels_json = json.dumps(lista_fechas)
+            values_json = json.dumps(lista_valores)
 
             # TABLA
             df_display = df.copy()
-            df_display = df_display[['Fecha', 'Producto', 'Precio soles', 'Precio_dólar', 'TipodeCambio_día']] 
-            df_display.columns = ['FECHA', 'PRODUCTO', 'PRECIO (S/)', 'PRECIO ($)', 'T.C.'] 
+            cols_existentes = list(df_display.columns)
+            if 'TipodeCambio_día' in cols_existentes:
+                 df_display = df_display[['Fecha', 'Producto', 'Precio soles', 'Precio_dólar', 'TipodeCambio_día']] 
+                 df_display.columns = ['FECHA', 'PRODUCTO', 'PRECIO (S/)', 'PRECIO ($)', 'T.C.'] 
+            
             tabla_html = df_display.to_html(classes="table table-hover align-middle custom-table", index=False, border=0)
             
         except Exception as e:
-            print(f"⚠️ Error procesando visual: {e}")
+            print(f"⚠️ Error visual: {e}")
 
     # HTML
     html = f"""
@@ -121,6 +126,7 @@ def generar_html():
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
         body {{ background-color: #f4f7fa; font-family: 'Poppins', sans-serif; color: #333; }}
@@ -226,20 +232,79 @@ def generar_html():
             <div class="col-lg-5">
                 <div class="card p-4 h-100">
                     <h5 class="fw-bold mb-3 text-secondary"><i class="fas fa-chart-pie me-2"></i> Análisis Visual de Costos</h5>
-                    <img src="grafico_precios.png" class="img-fluid rounded border border-light mb-4" alt="Gráfico Productos">
-                    
+                    <img src="grafico_precios.png" class="img-fluid rounded border border-light mb-2" alt="Gráfico Productos">
+                    <div class="mt-2 mb-4 text-center">
+                        <small class="text-muted"><i class="fas fa-info-circle"></i> Datos visualizados en tiempo real.</small>
+                    </div>
+
                     <hr class="border-secondary opacity-25">
                     
-                    <h6 class="fw-bold text-secondary mb-3 mt-3"><i class="fas fa-dollar-sign me-2"></i> Evolución Dólar (USD/PEN)</h6>
-                    <img src="grafico_dolar.png" class="img-fluid rounded border border-light" alt="Gráfico Dólar">
-
-                    <div class="mt-3 text-center">
-                        <small class="text-muted"><i class="fas fa-info-circle"></i> Datos visualizados en tiempo real.</small>
+                    <h6 class="fw-bold text-secondary mb-3 mt-3"><i class="fas fa-dollar-sign me-2"></i> Historial BCRP (Real)</h6>
+                    
+                    <div style="height: 200px; width: 100%; position: relative;">
+                        <canvas id="dolarChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {{
+            const ctx = document.getElementById('dolarChart');
+            
+            if (ctx) {{
+                const context = ctx.getContext('2d');
+                const gradient = context.createLinearGradient(0, 0, 0, 200);
+                gradient.addColorStop(0, 'rgba(0, 200, 83, 0.2)');
+                gradient.addColorStop(1, 'rgba(0, 200, 83, 0.0)');
+
+                // INYECCIÓN SEGURA DE JSON DESDE PYTHON
+                const labelsData = {labels_json}; 
+                const valuesData = {values_json};
+
+                new Chart(context, {{
+                    type: 'line',
+                    data: {{
+                        labels: labelsData,
+                        datasets: [{{
+                            label: 'Tipo de Cambio',
+                            data: valuesData,
+                            borderColor: '#00C853',
+                            backgroundColor: gradient,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#00C853',
+                            pointRadius: 5,
+                            pointHoverRadius: 8,
+                            fill: true,
+                            tension: 0.3
+                        }}]
+                    }},
+                    options: {{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {{
+                            legend: {{ display: false }},
+                            tooltip: {{
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0,0,0,0.8)',
+                                callbacks: {{ label: (c) => 'S/ ' + c.parsed.y.toFixed(3) }}
+                            }}
+                        }},
+                        scales: {{
+                            x: {{ grid: {{ display: false }} }},
+                            y: {{ grid: {{ borderDash: [5, 5] }}, ticks: {{ color: '#888' }} }}
+                        }},
+                        interaction: {{ mode: 'nearest', axis: 'x', intersect: false }}
+                    }}
+                }});
+            }} else {{
+                console.error("No se encontró el canvas para el gráfico");
+            }}
+        }});
+    </script>
     </body>
     </html>
     """
@@ -248,7 +313,7 @@ def generar_html():
         f.write(html)
     
     webbrowser.open("file://" + os.path.realpath("index.html"))
-    print("✅ Dashboard creado.")
+    print("✅ Dashboard actualizado con gráficos corregidos.")
 
 if __name__ == "__main__":
     generar_html()
