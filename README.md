@@ -60,7 +60,6 @@ ajuste de precios de los supermercados privados frente a la data oficial del Est
   - Series históricas del Índice de Precios al Consumidor (IPC) de Lima Metropolitana
 - **Uso:** Servirá como grupo de control para evaluar si los precios de supermercados se encuentran por encima o por debajo de la inflación oficial.
 
-
 ## III.  Objetivos del Proyecto
 
 ### 3.1. Objetivo General
@@ -77,6 +76,15 @@ Implementar un sistema automatizado en **Python** que integre la extracción de 
 
 3.  **Consolidación y Limpieza de Datos (Data Cleaning):**
     Estructurar un dataset final unificado (formato `.csv`) que combine los precios extraídos (Scraping), el tipo de cambio (API) y el histórico del IPC (INEI), aplicando técnicas de limpieza para asegurar la consistencia numérica y temporal necesaria para su análisis estadístico.
+
+## Resultados Esperados
+
+- Dataset histórico de precios reales de alimentos básicos.
+- Comparación directa entre inflación oficial y micro-inflación.
+- Visualizaciones claras para interpretación ciudadana.
+- Base replicable para estudios económicos y académicos.
+
+El sistema puede ser utilizado como herramienta de monitoreo social.
 
 ### 3.3 Estructura del dataset generado
 
