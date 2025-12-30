@@ -77,6 +77,7 @@ Implementar un sistema automatizado en **Python** que integre la extracción de 
 * **Conexión con API BCRP:** Consulta el Tipo de Cambio del día automáticamente.
 * **Gestión de Datos:** Almacena la información histórica en un archivo CSV estructurado sin duplicidad.
 * **Análisis Visual:** Genera gráficos de tendencia y reportes HTML para facilitar la lectura de datos.
+* **Predicción con IA:** Utiliza modelos de Regresión Lineal para proyectar si un producto subirá o bajará de precio según la tendencia del dólar y factores estacionales (Ej. Año Nuevo).
 
 ### 4.2. Estructura del Proyecto
 
@@ -87,6 +88,7 @@ El sistema está modularizado siguiendo buenas prácticas de ingeniería de soft
 * `api_data.py`: **Rol Conexión.** Consulta la API del Banco Central de Reserva.
 * `data_manager.py`: **Rol Ingeniería de Datos.** Limpia, transforma y guarda los datos en CSV.
 * `visual.py`: **Rol Analista.** Lee el CSV, calcula tendencias y genera el reporte visual.
+* `cerebro.py`: **Rol Data Science (IA).** Simula escenarios económicos y entrena un modelo de regresión lineal para generar predicciones.
 
 ### 4.3. Pre-requisitos e Instalación
 
@@ -98,13 +100,14 @@ Las librerías externas utilizadas son:
 * `pandas`: Para la manipulación de datos y CSV.
 * `matplotlib`: Para la generación de gráficos.
 * `scikit-learn`: Para el cálculo de regresión lineal (tendencias).
+* `numpy`: Para cálculos numéricos avanzados.
 
 ### 4.4. Instalación de dependencias
 
 Puedes instalar todas las librerías necesarias ejecutando el siguiente comando en tu terminal:
 
 ```bash
-pip install requests pandas beautifulsoup4 matplotlib scikit-learn
+pip install requests pandas beautifulsoup4 matplotlib scikit-learn numpy
 ```
 ---
 
