@@ -1,9 +1,20 @@
-#  Propuesta de Proyecto de Web Scraping - LP2 
+#  Proyecto de Web Scraping - LP2 
 ![Logo UNALM](https://cdn2.lamolina.edu.pe/lamolina-comunica1/websites/4/imagenes%20de%20escudo/1703855732083.jpeg)
 
-# Nombre del Proyecto: 'Info-Canasta'
+# Proyecto Info-Canasta
 
 ## Análisis Comparativo de la Evolución de Precios de la Canasta Básica Familiar en Lima
+
+**Curso:** Lenguaje de Programación II  
+**Universidad:** Universidad Nacional Agraria La Molina  
+
+## Integrantes del Grupo:
+**1.** ***López Ruiz Jhordy Fabrizio - GitHub: [JhorLop134]***
+
+**2.** ***Montero Balcazar Maria Megumi - GitHub: [Megumi-cpu]***
+
+**3.** ***Mata Sotelo Estiven Aldair - GitHub: [EstivenMata]***
+
 
 ## I. Importancia y Relevancia 
 **¿Porqué es importante el cambio de precios de la canasta básica?**  
@@ -119,9 +130,4 @@ pip install requests pandas beautifulsoup4 matplotlib scikit-learn numpy
 * **Mitchell, R. (2018).** *Web Scraping with Python: Collecting More Data from the Modern Web*. O'Reilly Media.
 * **VanderPlas, J. (2016).** *Python Data Science Handbook: Essential Tools for Working with Data*. O'Reilly Media.
 
-## Integrantes del Grupo:
-**1.** ***López Ruiz Jhordy Fabrizio - GitHub: [JhorLop134]***
 
-**2.** ***Montero Balcazar Maria Megumi - GitHub: [Megumi-cpu]***
-
-**3.** ***Mata Sotelo Estiven Aldair - GitHub: [EstivenMata]***
