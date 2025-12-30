@@ -132,7 +132,20 @@ Las librerías externas utilizadas son:
 * `scikit-learn`: Para el cálculo de regresión lineal (tendencias).
 * `numpy`: Para cálculos numéricos avanzados.
 
-### 4.4. Instalación de dependencias
+### 4.4 Diagrama de Arquitectura del Sistema
+
+El sistema Info-Canasta sigue una arquitectura modular y secuencial:
+
+1. **Scraper Web** obtiene precios desde Tottus.
+2. **API BCRP** provee el tipo de cambio diario.
+3. **Data Manager** limpia y consolida los datos en CSV.
+4. **Módulo Visual** genera gráficos y reporte HTML.
+5. **Modelo IA** proyecta tendencias futuras de precios.
+
+Flujo general:
+Scraper + API → Limpieza → CSV histórico → Visualización + Predicción
+
+### 4.5. Instalación de dependencias
 
 Puedes instalar todas las librerías necesarias ejecutando el siguiente comando en tu terminal:
 
@@ -140,7 +153,7 @@ Puedes instalar todas las librerías necesarias ejecutando el siguiente comando 
 pip install requests pandas beautifulsoup4 matplotlib scikit-learn numpy
 ```
 ---
-### 4.5 Ejecución del proyecto
+### 4.6 Ejecución del proyecto
 
 Para ejecutar todo el sistema:
 
