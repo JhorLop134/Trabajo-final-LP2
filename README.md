@@ -103,6 +103,13 @@ El sistema está modularizado siguiendo buenas prácticas de ingeniería de soft
 
 ### 4.3. Pre-requisitos e Instalación
 
+### Instalación del entorno
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/JhorLop134/Trabajo-final-LP2.git
+cd Trabajo-final-LP2
+
 Para ejecutar este proyecto, necesitas tener instalado **Python 3.x**.
 
 Las librerías externas utilizadas son:
