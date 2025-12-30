@@ -1,4 +1,4 @@
-#  Proyecto de Web Scraping - LP2 
+        #  Proyecto de Web Scraping - LP2 
 ![Logo UNALM](https://cdn2.lamolina.edu.pe/lamolina-comunica1/websites/4/imagenes%20de%20escudo/1703855732083.jpeg)
 
 # Proyecto Info-Canasta
@@ -77,6 +77,18 @@ Implementar un sistema automatizado en **Python** que integre la extracción de 
 
 3.  **Consolidación y Limpieza de Datos (Data Cleaning):**
     Estructurar un dataset final unificado (formato `.csv`) que combine los precios extraídos (Scraping), el tipo de cambio (API) y el histórico del IPC (INEI), aplicando técnicas de limpieza para asegurar la consistencia numérica y temporal necesaria para su análisis estadístico.
+
+### 3.3 Estructura del dataset generado
+
+El sistema genera un archivo CSV con la siguiente estructura:
+
+- fecha: Fecha de captura del precio
+- producto: Nombre del producto
+- precio_soles: Precio en moneda nacional
+- tipo_cambio: Tipo de cambio BCRP del día
+- precio_dolares: Precio convertido a dólares
+
+Este dataset permite análisis temporal y comparación con indicadores oficiales.
 
 4.  **Gestión Colaborativa del Desarrollo:**
     Utilizar **Git y GitHub** para la administración del código fuente, asegurando la integración del trabajo de todos los integrantes y la documentación del proceso de desarrollo, cumpliendo con los estándares de trabajo colaborativo exigidos por el curso.
