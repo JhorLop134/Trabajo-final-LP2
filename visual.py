@@ -239,7 +239,7 @@ def generar_html():
 
                     <hr class="border-secondary opacity-25">
                     
-                    <h6 class="fw-bold text-secondary mb-3 mt-3"><i class="fas fa-dollar-sign me-2"></i> Historial BCRP (Real)</h6>
+                    <h5 class="fw-bold text-secondary mb-3 mt-3"><i class="fas fa-dollar-sign me-2"></i> Comportamiento del Dólar</h5>
                     
                     <div style="height: 200px; width: 100%; position: relative;">
                         <canvas id="dolarChart"></canvas>
@@ -313,7 +313,7 @@ def generar_html():
         f.write(html)
     
     webbrowser.open("file://" + os.path.realpath("index.html"))
-    print("✅ Dashboard actualizado con gráficos corregidos.")
+    print("✅ Dashboard creado.")
 
 if __name__ == "__main__":
     generar_html()
