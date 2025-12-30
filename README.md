@@ -140,6 +140,12 @@ Puedes instalar todas las librerías necesarias ejecutando el siguiente comando 
 pip install requests pandas beautifulsoup4 matplotlib scikit-learn numpy
 ```
 ---
+### 4.5 Ejecución del proyecto
+
+Para ejecutar todo el sistema:
+
+```bash
+python main.py
 
 ### Referencias Bibliográficas
 * **Banco Central de Reserva del Perú. (2025).** *API de Series Estadísticas*. Recuperado de: [https://estadisticas.bcrp.gob.pe](https://estadisticas.bcrp.gob.pe)
